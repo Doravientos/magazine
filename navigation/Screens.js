@@ -72,70 +72,8 @@ function ProfileStack(props) {
       screenOptions={{
         mode: "card",
         headerShown: "screen",
+        tabBarStyle: { backgroundColor: "#60449B" },
       }}
-      activeColor="#f0edf6"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#694fad" }}
-    >
-      <Tab.Screen
-        name="Profil"
-        component={Profile}
-        options={{
-          tabBarIcon: () => {
-            return (
-              <Icon
-                name={"shop"}
-                family="ArgonExtra"
-                size={20}
-                color={"#11CDEF"}
-              />
-            );
-          },
-          header: ({ navigation, scene }) => (
-            <Header
-              transparent
-              white
-              title="Profile"
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#FFFFFF" },
-          headerTransparent: true,
-        }}
-      />
-      <Tab.Screen
-        name="Pro"
-        component={Pro}
-        options={{
-          title: "Por",
-          header: ({ navigation, scene }) => (
-            <Header
-              title=""
-              back
-              white
-              transparent
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          headerTransparent: true,
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
-
-function HomeStack(props) {
-  return (
-    <Tab.Navigator
-      // screenOptions={{
-      //   mode: "card",
-      //   headerShown: "screen",
-      // }}
-      activeColor="#f0edf6"
-      inactiveColor="#3e2465"
-      barStyle={{ backgroundColor: "#694fad" }}
     >
       <Tab.Screen
         name="Home"
@@ -147,7 +85,103 @@ function HomeStack(props) {
                 name={"shop"}
                 family="ArgonExtra"
                 size={20}
-                color={"#11CDEF"}
+                color={"white"}
+              />
+            );
+          },
+          header: ({ navigation, scene }) => (
+            <Header
+              transparent
+              title="Home"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          headerTransparent: true,
+        }}
+      />
+      <Tab.Screen
+        name="Categories"
+        component={Profile}
+        options={{
+          tabBarIcon: () => {
+            return (
+              <Icon
+                name={"shop"}
+                family="ArgonExtra"
+                size={20}
+                color={"white"}
+              />
+            );
+          },
+          header: ({ navigation, scene }) => (
+            <Header
+              transparent
+              title="Profile"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          headerTransparent: true,
+        }}
+      />
+      <Tab.Screen
+        name="Profil"
+        component={Profile}
+        options={{
+          tabBarIcon: () => {
+            return (
+              <Icon
+                name={"shop"}
+                family="ArgonExtra"
+                size={20}
+                color={"white"}
+              />
+            );
+          },
+          header: ({ navigation, scene }) => (
+            <Header
+              transparent
+              title="Profile"
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#FFFFFF" },
+          headerTransparent: true,
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
+function HomeStack(props) {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        mode: "card",
+        headerShown: "screen",
+        tabBarStyle: { height: 60 },
+        tabBarActiveTintColor: argonTheme.COLORS.ACTIVE,
+        tabBarInactiveTintColor: argonTheme.COLORS.DEFAULT,
+        tabBarLabelStyle: {
+          fontSize: 14,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <Icon
+                name={"shop"}
+                family="ArgonExtra"
+                size={size}
+                color={color}
               />
             );
           },
@@ -163,6 +197,61 @@ function HomeStack(props) {
           cardStyle: { backgroundColor: "#F8F9FE" },
         }}
       />
+
+      <Tab.Screen
+        name="Categories"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <Icon
+                name={"basket"}
+                family="ArgonExtra"
+                size={size}
+                color={color}
+              />
+            );
+          },
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Categories"
+              back
+              transparent
+              black
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
+
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return (
+              <Icon
+                name={"diamond"}
+                family="ArgonExtra"
+                size={size}
+                color={color}
+              />
+            );
+          },
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Profile"
+              back
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" },
+        }}
+      />
       <Tab.Screen
         name="Pro"
         component={Pro}
@@ -171,7 +260,6 @@ function HomeStack(props) {
             <Header
               title=""
               back
-              white
               transparent
               navigation={navigation}
               scene={scene}
@@ -193,11 +281,11 @@ function AppStack(props) {
         <Drawer.Navigator
           style={{ flex: 1 }}
           drawerContent={(props) => <CustomDrawerContent {...props} />}
-          drawerStyle={{
-            backgroundColor: "white",
-            width: width * 0.8,
-          }}
           screenOptions={{
+            drawerStyle: {
+              backgroundColor: "white",
+              width: width * 0.8,
+            },
             activeTintcolor: "white",
             inactiveTintColor: "#000",
             activeBackgroundColor: "transparent",
@@ -222,13 +310,6 @@ function AppStack(props) {
           <Drawer.Screen
             name="HomeStack"
             component={HomeStack}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Drawer.Screen
-            name="Profile"
-            component={ProfileStack}
             options={{
               headerShown: false,
             }}
@@ -268,9 +349,5 @@ export default function OnboardingStack(props) {
       />
       <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
-    // <Tab.Navigator>
-    //   <Tab.Screen name="Home" component={Home} />
-    //   {/* <Tab.Screen name="Settings" component={Settings} /> */}
-    // </Tab.Navigator>
   );
 }

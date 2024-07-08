@@ -72,7 +72,6 @@ function CustomDrawerContent({
               }}
             />
           </Block>
-          <DrawerCustomItem title="Profile" navigation={navigation} />
           <DrawerCustomItem
             title="Logout"
             navigation={navigation}

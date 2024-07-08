@@ -106,7 +106,7 @@ const DrawerItem = (props) => {
                   key={index}
                   style={{ height: 60 }}
                   onPress={() =>
-                    navigation.navigate("Home", { title: "Article" })
+                    navigation.navigate("Article", { title: "Article" })
                   }
                 >
                   <Block flex row style={containerStyles}>

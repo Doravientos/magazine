@@ -26,13 +26,6 @@ class Article extends React.Component {
     const { navigation, scene, title } = this.props;
     return (
       <>
-        {/* <Header
-          title={title}
-          search
-          options
-          navigation={navigation}
-          scene={scene}
-        /> */}
         <Block flex center style={styles.home}>
           {this.renderArticles()}
         </Block>
@@ -44,10 +37,12 @@ class Article extends React.Component {
 const styles = StyleSheet.create({
   home: {
     width: width,
+    // backgroundColor: "#23173F"
   },
   articles: {
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE,
+    // backgroundColor: "#23173F"
   },
 });
 
